@@ -23,7 +23,60 @@
         </section>
         <section id="form">
             <h2>反馈表单</h2>
-            <p>（表单下一步填在这里）</p>
+            <form action="#" method="get">
+                <p>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </p>
+                <p>
+                    <label for="mail">Email</label>
+                    <input type="email" id="mail" name="mail" required>
+                </p>
+                <p>Course Rating</p>
+                <p>
+                    <label>
+                        <input type="radio" name="score" value="5" checked>
+                        Excellent
+                    </label>
+                    <label>
+                        <input type="ratio" name="score" value="4">
+                        good
+                    </label>
+                    <label>
+                        <input type="ratio" name="score" value="3">
+                        Average
+                    </label>
+                </p>
+                <p>Topics you want to learn more about</p>
+                <p>
+                    <label>
+                        <input type="Checkbox" name="topic" value="layout">
+                        Page Layout
+                    </label>
+                    <label>
+                        <input type="Checkbox" name="topic" value="js">
+                        Javascript
+                    </label>
+                    <label>
+                        <input type="checkbox" name="topic" value="chart">
+                        Data Visualization
+                    </label>
+                </p>
+                <p>
+                    <label for="advice">Suggestions</label>
+                    <br>
+                    <textarea 
+                         id="advice"
+                         name="advice"
+                         rows="4"
+                         maxlength="200"
+                         placeholder="Write your suggestion here">
+                    </textarea>
+                </p>
+                <p>
+                    <button type="submit">Submit Feedback</button>
+                </p>
+            </form>
         </section>
     </main>
     <footer>
