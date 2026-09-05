@@ -31,7 +31,95 @@
 
         <section id="registration">
             <h2>Registration Form</h2>
-            <p>The registration form will be added in the next step.</p>
+            <form action="#" method="get">
+
+    <p>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+    </p>
+
+    <p>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+    </p>
+
+    <p>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="16" max="100">
+    </p>
+
+    <p>
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday">
+    </p>
+
+    <p>Programming Experience:</p>
+
+    <p>
+        <label>
+            <input type="radio" name="experience" value="beginner" checked>
+            Beginner
+        </label>
+
+        <label>
+            <input type="radio" name="experience" value="intermediate">
+            Intermediate
+        </label>
+
+        <label>
+            <input type="radio" name="experience" value="advanced">
+            Advanced
+        </label>
+    </p>
+
+    <p>Interests:</p>
+
+    <p>
+        <label>
+            <input type="checkbox" name="interest" value="web">
+            Web Development
+        </label>
+
+        <label>
+            <input type="checkbox" name="interest" value="ai">
+            Artificial Intelligence
+        </label>
+
+        <label>
+            <input type="checkbox" name="interest" value="games">
+            Game Development
+        </label>
+    </p>
+
+    <p>
+        <label for="club-area">Preferred Club Area:</label>
+
+        <select id="club-area" name="club-area">
+            <option value="">Please select</option>
+            <option value="web">Web Development</option>
+            <option value="ai">Artificial Intelligence</option>
+            <option value="games">Game Development</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="reason">Why do you want to join?</label>
+        <br>
+        <textarea
+            id="reason"
+            name="reason"
+            rows="4"
+            maxlength="200"
+            placeholder="Write your reason here">
+        </textarea>
+    </p>
+
+    <p>
+        <button type="submit">Submit Registration</button>
+        <button type="reset">Reset</button>
+    </p>
+
+</form>
         </section>
 
     </main>
