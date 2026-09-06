@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Club Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Student Club Registration</h1>
+        <p>Choose a club and register to join student activities.</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#register">Register</a>
+    </nav>
+
+    <main>
+        <section id="about">
+            <h2>About the class</h2>
+            <p>
+                Students can join different clubs to learn new skills,
+                meet other students, and participate in activities.
+            </p>
+            <form action="#" method="get">
+                <p>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </p>
+
+                <p>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </p>
+
+                <p>
+                     <label for="age">Age:</label>
+                     <input type="number" id="age" name="age" min="16" max="100">
+                </p>
+
+                <p>
+                     <label for="club">Choose a Club:</label>
+                     <select id="club" name="club">
+                        <option value="">Please select</option>
+                        <option value="programming">Programming Club</option>
+                        <option value="music">Music Club</option>
+                        <option value="sports">Sports Club</option>
+                     </select>
+                </p>
+
+                <p>
+                    Experience Level:
+                </p>
+
+                <label>
+                     <input type="radio" name="experience" value="beginner" checked>
+                     Beginner
+                </label>
+
+                <label>
+                    <input type="radio" name="experience" value="experienced">
+                    Experienced
+                </label>
+
+                <p>Interests</p>
+
+                <label>
+                    <input type="checkbox" name="interest" value="events">
+                    Events
+                </label>
+
+                <label>
+                    <input type="checkbox" name="interest" value="projects">
+                    Projects
+                </label>
+
+                <p>
+                    <label for="reason">Why do you want to join</label><br>
+                    <textarea
+                        id="reason"
+                        name="reason"
+                        rows="4"
+                        maxlength="200">
+                    </textarea>
+                </p>
+
+                <button type="submit">Submit registration</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Student Club Registration Page</p>
+    </footer>
+</body>
+</html>
