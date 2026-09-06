@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width,initial-scale=1.0">
+    <title>Course Feedback</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Course Feedback</h1>
+        <p>your feedback helps to improve next class</p>
+    </header>
+    <nav>
+        <a href="#intro">Instruction</a>
+        <a href="#form">Start Feedback</a>
+    </nav>
+    <main>
+        <section id="intro">
+
+            <h2>填写说明</h2>
+            <p>匿名收集，仅用于改进教学，两分钟填完。</p>
+        </section>
+        <section id="form">
+            <h2>反馈表单</h2>
+            <form action="#" method="get">
+                <p>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </p>
+                <p>
+                    <label for="mail">Email</label>
+                    <input type="email" id="mail" name="mail" required>
+                </p>
+                <p>Course Rating</p>
+                <p>
+                    <label>
+                        <input type="radio" name="score" value="5" checked>
+                        Excellent
+                    </label>
+                    <label>
+                        <input type="ratio" name="score" value="4">
+                        good
+                    </label>
+                    <label>
+                        <input type="ratio" name="score" value="3">
+                        Average
+                    </label>
+                </p>
+                <p>Topics you want to learn more about</p>
+                <p>
+                    <label>
+                        <input type="Checkbox" name="topic" value="layout">
+                        Page Layout
+                    </label>
+                    <label>
+                        <input type="Checkbox" name="topic" value="js">
+                        Javascript
+                    </label>
+                    <label>
+                        <input type="checkbox" name="topic" value="chart">
+                        Data Visualization
+                    </label>
+                </p>
+                <p>
+                    <label for="advice">Suggestions</label>
+                    <br>
+                    <textarea 
+                         id="advice"
+                         name="advice"
+                         rows="4"
+                         maxlength="200"
+                         placeholder="Write your suggestion here">
+                    </textarea>
+                </p>
+                <p>
+                    <button type="submit">Submit Feedback</button>
+                </p>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>软件开发综合实践 · 课程演示案例</p>
+    </footer>
+</body>
+</html>
