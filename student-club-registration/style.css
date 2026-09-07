@@ -11,9 +11,17 @@ body {
 
 header {
     text-align: center;
-    padding: 30px 20px;
+    padding: 35px 20px;
     background-color: #2c3e50;
     color: white;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+header p {
+    margin: 0;
 }
 
 nav {
@@ -27,6 +35,11 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
 }
 
 main {
@@ -38,7 +51,11 @@ main {
 section {
     background-color: white;
     padding: 25px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+}
+
+.card {
     border-radius: 8px;
 }
 
@@ -47,11 +64,16 @@ form {
     gap: 15px;
 }
 
+form p {
+    margin: 0;
+}
+
 input,
 select,
 textarea {
     width: 100%;
     padding: 10px;
+    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -59,15 +81,19 @@ textarea {
 input[type="radio"],
 input[type="checkbox"] {
     width: auto;
+    margin-right: 5px;
+}
+
+textarea {
+    resize: vertical;
 }
 
 button {
     padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #2c3e50;
-    color: white;
-    cursor: pointer;
+}
+
+.btn-primary {
+    width: 100%;
 }
 
 footer {
@@ -77,6 +103,23 @@ footer {
     color: white;
 }
 
+footer p {
+    margin: 0;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    main {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    header {
+        padding: 25px 15px;
+    }
+}
+
+/* Phone */
 @media (max-width: 600px) {
     nav {
         flex-direction: column;
@@ -91,5 +134,9 @@ footer {
 
     section {
         padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
     }
 }
