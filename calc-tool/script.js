@@ -27,12 +27,28 @@ const categoryNames = (list) => {
     return list.map(e => e.category);
 };
 
+const createReport = (list) => {
+    const valid = cleanExpenses(list);
 
+    if (valid.length === 0) {
+        return '没有有效的消费记录';
+    }
+
+    const total = totalExpenses(valid);
+    const average = averageExpense(valid);
+    const large = largeExpenses(valid);
+
+    return `消费记录月报
+有效记录：${valid.length}条
+总消费：${total}元
+平均消费：${average}元
+大额消费：${large.length}条`;
+};
 
 console.table(expenses);
-console.log('清洗后：', cleanExpenses(expenses));
-console.log('总消费：', totalExpenses(cleanExpenses(expenses)));
-console.log('平均消费：', averageExpense(cleanExpenses(expenses)));
-console.log('大额消费：', largeExpenses(cleanExpenses(expenses)));
-console.log('消费类别：', categoryNames(cleanExpenses(expenses)));
-console.log('大额消费：', largeExpenses(cleanExpenses(expenses)));
+
+try {
+    console.log(createReport(expenses));
+} catch (err) {
+    console.error('报告生成失败：', err.message);
+}
