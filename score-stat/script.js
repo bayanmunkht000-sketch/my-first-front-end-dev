@@ -6,3 +6,27 @@ const scores = [
 ];
 
 console.table(scores);
+
+const cleanScores = (list) => {
+    return list.filter(s => s.score >= 0 && s.score <= 100);
+};
+
+const average = (list) => {
+    const total = list.reduce((sum,s) => sum + s.score, 0);
+    return (total / list.length).toFixed(2);
+};
+
+const highest = (list) => {
+    return list.reduce((max, s) => s.score > max.score ? s : max);
+};
+
+const failedNames = (list) => {
+    return list
+        .filter(s => s.score < 60)
+        .map(s => s.name);
+};
+
+console.log('清洗后：', cleanScores(scores));
+console.log('平均分：', average(cleanScores(scores)));
+console.log('最高分：', highest(cleanScores(scores)));
+console.log('不及格学生：', failedNames(cleanScores(scores)));
