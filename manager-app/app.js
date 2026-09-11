@@ -6,7 +6,10 @@ const ratingInput = document.querySelector('#rating-input');
 const tip = document.querySelector('#tip');
 const list = document.querySelector('#book-list');
 
-let books = [];
+let books = JSON.parse(localStorage.getItem('books') || '[]');
+const save = () => {
+    localStorage.setItem('books', JSON.stringify(books));
+};
 let searchText = '';
 
 const render = () => {
@@ -35,6 +38,7 @@ const render = () => {
         deleteBtn.addEventListener('click', () => {
             const index = books.indexOf(book);
             books.splice(index, 1);
+            save();
             render();
         });
 
@@ -51,11 +55,27 @@ form.addEventListener('submit', (e) => {
     const author = authorInput.value.trim();
     const rating = ratingInput.value;
 
+    if (title === '' || author === '' || rating === '') {
+        tip.textContent = '请完整填写书名、作者和评分';
+        return;
+    }
+
+    if (Number(rating) < 1 || Number(rating) > 10) {
+        tip.textContent = '评分请输入1到10之间的数字';
+        return;
+    }
+
+    tip.textContent = '';
+
+
+
     books.push({
         title: title,
         author: author,
         rating: rating
     });
+
+    save();
 
     titleInput.value = '';
     authorInput.value = '';
