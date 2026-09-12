@@ -27,6 +27,7 @@ const loadData = async () => {
 
     renderCards(data);
     renderBarChart(data);
+    renderLineChart(data);
 
   } catch (error) {
     $('#status').text(
@@ -34,6 +35,7 @@ const loadData = async () => {
     ).show();
   }
 };
+
 
 const renderCards = (data) => {
   const months = data.months;
@@ -57,29 +59,36 @@ const renderCards = (data) => {
   });
 };
 
+
 let barChart = null;
 
 const renderBarChart = (data) => {
-  const chartDom = document.getElementById('bar-chart');
+  if (barChart === null) {
+    barChart = echarts.init(
+      document.querySelector('#bar-chart')
+    );
+  }
 
-  barChart = echarts.init(chartDom);
+  barChart.setOption({
+    title: {
+      text: '各月各品类借阅量',
+      left: 'center'
+    },
 
-  const option = {
     tooltip: {
       trigger: 'axis'
     },
 
     legend: {
-      data: data.series.map(s => s.category)
+      bottom: 0
     },
 
     xAxis: {
-      type: 'category',
       data: data.months
     },
 
     yAxis: {
-      type: 'value'
+      name: '册'
     },
 
     series: data.series.map(s => ({
@@ -87,9 +96,52 @@ const renderBarChart = (data) => {
       type: 'bar',
       data: s.counts
     }))
-  };
-
-  barChart.setOption(option);
+  });
 };
+
+
+let lineChart = null;
+
+const renderLineChart = (data) => {
+  if (lineChart !== null) {
+    lineChart.destroy();
+  }
+
+  const ctx = document.querySelector('#line-chart');
+
+  lineChart = new Chart(ctx, {
+    type: 'line',
+
+    data: {
+      labels: data.months,
+
+      datasets: data.series.map(s => ({
+        label: s.category,
+        data: s.counts,
+        borderWidth: 1
+      }))
+    },
+
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+
+      plugins: {
+        title: {
+          display: true,
+          text: '借阅趋势（单位：册）'
+        }
+      }
+    }
+  });
+};
+
+
+window.addEventListener('resize', () => {
+  if (barChart) {
+    barChart.resize();
+  }
+});
+
 
 loadData();
