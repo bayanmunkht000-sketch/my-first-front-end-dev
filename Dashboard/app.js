@@ -27,7 +27,6 @@ const loadData = async () => {
 
     renderCards(data);
     renderBarChart(data);
-    renderLineChart(data);
 
   } catch (error) {
     $('#status').text(
@@ -56,6 +55,41 @@ const renderCards = (data) => {
       </div>
     `);
   });
+};
+
+let barChart = null;
+
+const renderBarChart = (data) => {
+  const chartDom = document.getElementById('bar-chart');
+
+  barChart = echarts.init(chartDom);
+
+  const option = {
+    tooltip: {
+      trigger: 'axis'
+    },
+
+    legend: {
+      data: data.series.map(s => s.category)
+    },
+
+    xAxis: {
+      type: 'category',
+      data: data.months
+    },
+
+    yAxis: {
+      type: 'value'
+    },
+
+    series: data.series.map(s => ({
+      name: s.category,
+      type: 'bar',
+      data: s.counts
+    }))
+  };
+
+  barChart.setOption(option);
 };
 
 loadData();
