@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My 3D Campsite</title>
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+</head>
+
+<body>
+
+  <a-scene>
+    <a-sky color="#87CEEB"></a-sky>
+    <a-plane
+       position="0 0 -5"
+       rotation="-90 0 0"
+       width="20"
+       height="20"
+       color="#6BAF45">
+    </a-plane>
+
+    <a-cylinder
+        position="-3 1 -6"
+        radius="0.3"
+        height="2"
+        color="#8B5A2B">
+    </a-cylinder>
+
+    <a-cone
+        position="-3 2.5 -6"
+        radius-bottom="1"
+        height="2.5"
+        color="#2E7D32">
+    </a-cone>
+
+    <a-cylinder
+        position="3 1.5 3"
+        radius="0.3"
+        height="4"
+        color="#8B5A2B">
+    </a-cylinder>
+
+    <a-cone
+        position="3 5.5 3"
+        radius-bottom="1.5"
+        height="4.5"
+        color="#2E7D32">
+    </a-cone>
+
+    <a-cone
+        position="0 1 -6"
+        radius-bottom="2.5"
+        height="4.5"
+        color="#cf5a1f">
+    </a-cone>    
+
+    <a-camera position="0 1.6 2"></a-camera>
+
+  </a-scene>
+
+</body>
+</html>
