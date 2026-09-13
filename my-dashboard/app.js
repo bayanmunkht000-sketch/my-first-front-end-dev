@@ -30,6 +30,7 @@ const loadData = async () => {
     $('#status').hide();
 
     renderCards(data);
+    renderBarChart(data);
 
   } catch (error) {
 
@@ -65,6 +66,51 @@ const renderCards = (data) => {
     `);
 
   });
+};
+
+
+let barChart = null;
+
+const renderBarChart = (data) => {
+
+  const chartDom = document.getElementById('bar-chart');
+
+  barChart = echarts.init(chartDom);
+
+  const option = {
+
+    title: {
+      text: 'Monthly Spending by Category',
+      left: 'center'
+    },
+
+    tooltip: {
+      trigger: 'axis'
+    },
+
+    legend: {
+      data: data.series.map(s => s.category),
+      bottom: 0
+    },
+
+    xAxis: {
+      type: 'category',
+      data: data.months
+    },
+
+    yAxis: {
+      type: 'value',
+      name: 'RMB'
+    },
+
+    series: data.series.map(s => ({
+      name: s.category,
+      type: 'bar',
+      data: s.counts
+    }))
+  };
+
+  barChart.setOption(option);
 };
 
 

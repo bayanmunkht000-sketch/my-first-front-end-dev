@@ -9,6 +9,12 @@
   >
 
   <title>My Spending Dashboard</title>
+  <style>
+  .chart-box {
+    height: 360px;
+    margin-top: 20px;
+  }
+  </style>
 </head>
 
 <body>
@@ -23,8 +29,18 @@
 
   <section id="cards"></section>
 
-  <script src="libs/jquery-3.7.1.min.js"></script>
-  <script src="app.js"></script>
+  <section>
+  <h2>Monthly Spending by Category</h2>
+
+  <div
+    id="bar-chart"
+    class="chart-box"
+  ></div>
+  </section>
+
+<script src="libs/jquery-3.7.1.min.js"></script>
+<script src="libs/echarts.min.js"></script>
+<script src="app.js"></script>
 
 </body>
 
