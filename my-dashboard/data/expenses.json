@@ -1,0 +1,18 @@
+{
+  "title": "Monthly Spending Report",
+  "months": ["January", "February", "March", "April"],
+  "series": [
+    {
+      "category": "Food",
+      "counts": [650, 720, 680, 750]
+    },
+    {
+      "category": "Transport",
+      "counts": [120, 150, 110, 140]
+    },
+    {
+      "category": "Shopping",
+      "counts": [300, 250, 420, 280]
+    }
+  ]
+}
