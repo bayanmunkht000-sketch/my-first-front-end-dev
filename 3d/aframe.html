@@ -23,8 +23,17 @@
 
     <a-sphere
       position="0 1.25 -5"
+      rotation="0 45 0"
+      scale="1 1.3 1"
       radius="1.25"
-      color="#FFB74D">
+      color="#FFB74D"
+      animation="property: position;
+                 from: 0 1.25 -5;
+                 to: 0 2 -5;
+                 dir: alternate;
+                 loop: true;
+                 dur: 1500;
+                 easing: easeInOutSine">
     </a-sphere>
 
     <a-cylinder
