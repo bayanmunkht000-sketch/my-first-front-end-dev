@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>A-Frame Scene</title>
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+</head>
+
+<body>
+
+  <a-scene>
+
+    <a-box
+      position="-2 1 -5"
+      color="#4FC3F7"
+      animation="property: rotation;
+                 to: 0 360 0;
+                 loop: true;
+                 dur: 4000;
+                 easing: linear">
+    </a-box>
+
+    <a-sphere
+      position="0 1.25 -5"
+      radius="1.25"
+      color="#FFB74D">
+    </a-sphere>
+
+    <a-cylinder
+      position="2 1 -5"
+      radius="0.5"
+      height="2"
+      color="#EF5350">
+    </a-cylinder>
+
+    <a-plane
+      position="0 0 -4"
+      rotation="-90 0 0"
+      width="12"
+      height="12"
+      color="#7BC47F">
+    </a-plane>
+
+    <a-sky
+      color="#B3E5FC">
+    </a-sky>
+
+    <a-light
+      type="ambient"
+      color="#FFFFFF"
+      intensity="0.6">
+    </a-light>
+
+    <a-light
+      type="directional"
+      color="#FFFFFF"
+      intensity="0.8"
+      position="2 4 1">
+    </a-light>
+
+    <a-camera
+      position="0 1.6 2">
+    </a-camera>
+
+  </a-scene>
+
+</body>
+
+</html>
