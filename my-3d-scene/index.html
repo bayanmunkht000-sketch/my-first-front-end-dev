@@ -8,7 +8,7 @@
 
 <body>
 
-  <a-scene>
+  <a-scene cursor="rayOrigin: mouse">
     <a-sky color="#070a26"></a-sky>
     <a-plane
        position="0 0 -5"
@@ -53,7 +53,9 @@
         color="#2d3cc4">
     </a-cone>    
 
-    <a-camera position="0 1.6 2"></a-camera>
+    <a-camera position="0 1.6 2">
+
+    </a-camera>
 
     <a-cone
         position="0 0.7 -2.5"
@@ -69,9 +71,11 @@
     </a-cone>
 
     <a-sphere
+        class="clickable-rock"
         position="0.35 0.25 -2"
         radius="0.3"
-        color="#666666">
+        color="#666666"
+        event-set__click="_event: click; color: #1f1504">
     </a-sphere>
 
     <a-light
@@ -88,24 +92,40 @@
     </a-light>
 
     <a-sphere
+        class="clickable-rock"
         position="-0.35 0.25 -2"
         radius="0.3"
-        color="#666666">
+        color="#666666"
+        event-set__click="_event: click; color: #1f1504">
     </a-sphere>
 
         <a-sphere
+        class="clickable-rock"
         position="0.35 0.25 -2.9"
         radius="0.3"
-        color="#666666">
+        color="#666666"
+        event-set__click="_event: click; color: #1f1504">
     </a-sphere>
 
         <a-sphere
+        class="clickable-rock"
         position="-0.45 0.25 -2.9"
         radius="0.3"
-        color="#666666">
+        color="#666666"
+        event-set__click="_event: click; color: #1f1504">
     </a-sphere>
 
   </a-scene>
+
+<script>
+  const rocks = document.querySelectorAll('.clickable-rock');
+
+  rocks.forEach(function (rock) {
+    rock.addEventListener('click', function () {
+      rock.setAttribute('color', '#FFD700');
+    });
+  });
+</script>
 
 </body>
 </html>
