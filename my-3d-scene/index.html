@@ -9,7 +9,7 @@
 <body>
 
   <a-scene>
-    <a-sky color="#87CEEB"></a-sky>
+    <a-sky color="#070a26"></a-sky>
     <a-plane
        position="0 0 -5"
        rotation="-90 0 0"
@@ -50,10 +50,60 @@
         position="0 1 -6"
         radius-bottom="2.5"
         height="4.5"
-        color="#cf5a1f">
+        color="#2d3cc4">
     </a-cone>    
 
     <a-camera position="0 1.6 2"></a-camera>
+
+    <a-cone
+        position="0 0.7 -2.5"
+        radius-bottom="0.5"
+        height="1.2"
+        color="#ff6b00"
+        animation="property: scale;
+           to: 1.2 1.4 1.2;
+           dir: alternate;
+           dur: 500;
+           loop: true">
+        
+    </a-cone>
+
+    <a-sphere
+        position="0.35 0.25 -2"
+        radius="0.3"
+        color="#666666">
+    </a-sphere>
+
+    <a-light
+        type="point"
+        position="0 1 -2.5"
+        color="#ff9d3b"
+        intensity="1">
+    </a-light>
+
+    <a-light
+        type="ambient"
+        color="#ffffff"
+        intensity="0.5">
+    </a-light>
+
+    <a-sphere
+        position="-0.35 0.25 -2"
+        radius="0.3"
+        color="#666666">
+    </a-sphere>
+
+        <a-sphere
+        position="0.35 0.25 -2.9"
+        radius="0.3"
+        color="#666666">
+    </a-sphere>
+
+        <a-sphere
+        position="-0.45 0.25 -2.9"
+        radius="0.3"
+        color="#666666">
+    </a-sphere>
 
   </a-scene>
 
