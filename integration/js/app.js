@@ -96,3 +96,64 @@ function filterRooms() {
 floorFilter.addEventListener("change", filterRooms);
 
 statusFilter.addEventListener("change", filterRooms);
+
+fetch("data/data.json")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+
+    const roomNames = data.rooms.map(function (room) {
+      return room.name;
+    });
+
+    const usageValues = data.rooms.map(function (room) {
+      return room.usage;
+    });
+
+    createUsageChart(roomNames, usageValues);
+
+  })
+  .catch(function (error) {
+    console.error("数据加载失败：", error);
+  });
+
+  function createUsageChart(roomNames, usageValues) {
+
+  const ctx = document.querySelector("#usageChart");
+
+  new Chart(ctx, {
+    type: "bar",
+
+    data: {
+      labels: roomNames,
+
+      datasets: [
+        {
+          label: "使用率（%）",
+          data: usageValues
+        }
+      ]
+    },
+
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+
+      plugins: {
+        title: {
+          display: true,
+          text: "校园自习室使用率"
+        }
+      },
+
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 100
+        }
+      }
+    }
+  });
+
+}
