@@ -102,6 +102,11 @@ fetch("data/data.json")
     return response.json();
   })
   .then(function (data) {
+    if (data.rooms.length === 0) {
+       const dataError = document.querySelector("#dataError");
+       dataError.textContent = "暂无数据。";
+       return;
+}
 
     const roomNames = data.rooms.map(function (room) {
       return room.name;
@@ -114,8 +119,14 @@ fetch("data/data.json")
     createUsageChart(roomNames, usageValues);
 
   })
-  .catch(function (error) {
-    console.error("数据加载失败：", error);
+ .catch(function (error) {
+
+  console.error("数据加载失败：", error);
+
+  const dataError = document.querySelector("#dataError");
+
+  dataError.textContent = "数据加载失败，请稍后再试。";
+
   });
 
   function createUsageChart(roomNames, usageValues) {
