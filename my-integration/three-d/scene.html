@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My 3D Campsite</title>
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+</head>
+
+<body>
+
+  <a-scene cursor="rayOrigin: mouse">
+    <a-sky color="#070a26"></a-sky>
+    <a-plane
+       position="0 0 -5"
+       rotation="-90 0 0"
+       width="20"
+       height="20"
+       color="#6BAF45">
+    </a-plane>
+
+    <a-cylinder
+        position="-3 1 -6"
+        radius="0.3"
+        height="2"
+        color="#8B5A2B">
+    </a-cylinder>
+
+    <a-cone
+        position="-3 2.5 -6"
+        radius-bottom="1"
+        height="2.5"
+        color="#2E7D32">
+    </a-cone>
+
+    <a-cylinder
+        position="3 1.5 3"
+        radius="0.3"
+        height="4"
+        color="#8B5A2B">
+    </a-cylinder>
+
+    <a-cone
+        position="3 5.5 3"
+        radius-bottom="1.5"
+        height="4.5"
+        color="#2E7D32">
+    </a-cone>
+
+    <a-cone
+        position="0 1 -6"
+        radius-bottom="2.5"
+        height="4.5"
+        color="#2d3cc4">
+    </a-cone>    
+
+    <a-camera position="0 1.6 2">
+
+    </a-camera>
+
+    <a-cone
+        position="0 0.7 -2.5"
+        radius-bottom="0.5"
+        height="1.2"
+        color="#ff6b00"
+        animation="property: scale;
+           to: 1.2 1.4 1.2;
+           dir: alternate;
+           dur: 500;
+           loop: true">
+        
+    </a-cone>
+
+    <a-sphere
+        class="clickable-rock"
+        position="0.35 0.25 -2"
+        radius="0.3"
+        color="#666666"
+        event-set__click="_event: click; color: #1f1504">
+    </a-sphere>
+
+    <a-light
+        type="point"
+        position="0 1 -2.5"
+        color="#ff9d3b"
+        intensity="1">
+    </a-light>
+
+    <a-light
+        type="ambient"
+        color="#ffffff"
+        intensity="0.5">
+    </a-light>
+
+    <a-sphere
+        class="clickable-rock"
+        position="-0.35 0.25 -2"
+        radius="0.3"
+        color="#666666"
+        event-set__click="_event: click; color: #1f1504">
+    </a-sphere>
+
+        <a-sphere
+        class="clickable-rock"
+        position="0.35 0.25 -2.9"
+        radius="0.3"
+        color="#666666"
+        event-set__click="_event: click; color: #1f1504">
+    </a-sphere>
+
+        <a-sphere
+        class="clickable-rock"
+        position="-0.45 0.25 -2.9"
+        radius="0.3"
+        color="#666666"
+        event-set__click="_event: click; color: #1f1504">
+    </a-sphere>
+
+  </a-scene>
+
+<script>
+  const rocks = document.querySelectorAll('.clickable-rock');
+
+  rocks.forEach(function (rock) {
+    rock.addEventListener('click', function () {
+      rock.setAttribute('color', '#FFD700');
+    });
+  });
+</script>
+
+</body>
+</html>

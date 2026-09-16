@@ -1,0 +1,7 @@
+{
+  "subjects": [
+    { "name": "计算机", "hours": 5 },
+    { "name": "汉语", "hours": 4 },
+    { "name": "西班牙语", "hours": 8 }
+  ]
+}

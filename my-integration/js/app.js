@@ -87,3 +87,75 @@ function filterTasks() {
 subjectFilter.addEventListener("change", filterTasks);
 
 statusFilter.addEventListener("change", filterTasks);
+
+fetch("data/data.json")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    if (data.subjects.length === 0) {
+       const dataError = document.querySelector("#dataError");
+       dataError.textContent = "暂无数据。";
+       return;
+}
+
+    const subjectNames = data.subjects.map(function (subject) {
+      return subject.name;
+    });
+
+    const studyHours = data.subjects.map(function (subject) {
+      return subject.hours;
+    });
+
+    createStudyChart(subjectNames, studyHours);
+
+  })
+ .catch(function (error) {
+
+  console.error("数据加载失败：", error);
+
+  const dataError = document.querySelector("#dataError");
+
+  dataError.textContent = "数据加载失败，请稍后再试。";
+
+  });
+
+  function createStudyChart(subjectNames, studyHours) {
+
+  const ctx = document.querySelector("#studyChart");
+
+  new Chart(ctx, {
+    type: "bar",
+
+    data: {
+      labels: subjectNames,
+
+      datasets: [
+        {
+          label: "学习时间（小时）",
+          data: studyHours
+        }
+      ]
+    },
+
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+
+      plugins: {
+        title: {
+          display: true,
+          text: "每周学习时间"
+        }
+      },
+
+      scales: {
+        y: {
+          beginAtZero: true,
+        
+        }
+      }
+    }
+  });
+
+}
