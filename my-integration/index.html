@@ -35,7 +35,23 @@
 
 <section id="tasks" class="container py-5">
     <h2>学习任务</h2>
-    <p>学习任务将在这里显示。</p>
+    <select>
+        <option value="all">全部科目</option>
+        <option value="cs">计算机</option>
+        <option value="chinese">汉语</option>
+        <option value="spanish">西班牙语</option>
+        class="form-select"
+    </select>
+
+    <select>
+        <option value="all">全部状态</option>
+        <option value="pending">未完成</option>
+        <option value="done">已完成</option>
+        class="form-select"
+    </select>
+
+    <div id="tasklist"></div>
+    
 </section>
 
 <section id="stats" class="container py-5">
@@ -60,6 +76,6 @@
     </div>
 
 </section>
-
+<script src="my-integration/js/app.js"></script>
 </body>
 </html>
